@@ -36,24 +36,23 @@ text_file = open("output.txt", "w")
 
 im = Image.open("img.jpg")
 
+fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+
 width, height = im.size
 im = im.resize((int(scaleFactor * width), int(scaleFactor * height * (onecharwidth / onecharheight))), Image.NEAREST)
 width, height = im.size
 pix = im.load()
 
-outputImage = Image.new('RGB', (onecharwidth * width, onecharheight * height), color = (255, 255, 255))
-width, height = outputImage.size
+outputImage = Image.new('RGB', (onecharwidth * width, onecharheight * height), color = (0, 0, 0))
+d = ImageDraw.Draw(outputImage)
 
-print(width, height)
-
-# iterate over the resized input image (im), not the outputImage dimensions
-im_width, im_height = im.size
-for i in range(im_height):
-    for j in range(im_width):
+for i in range(height):
+    for j in range(width):
         r, g, b = pix[j, i]
         h = int((r + g + b) / 3)
         pix[j, i] = (h, h, h)
         text_file.write(getchar(h))
+        d.text((j*onecharwidth,  i*onecharheight), getchar(h), font = fnt, fill = (r, g, b))
 
     text_file.write("\n")
 
