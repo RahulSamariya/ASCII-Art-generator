@@ -24,7 +24,7 @@ charArray = list(chars)
 charlength = len(charArray)
 interval = charlength / 256
 
-scaleFactor = 0.1
+scaleFactor = 0.3
 
 onecharwidth = 8
 onecharheight = 18
