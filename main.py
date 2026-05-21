@@ -2,13 +2,14 @@ from PIL import Image , ImageDraw , ImageFont
 
 import math
 
-# chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
-chars = "#Wo- " [::-1]
+chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
+# chars = "#Wo- " [::-1]
+
 charArray = list(chars)
 charlength = len(charArray)
 interval = charlength / 256
 
-scaleFactor = 0.05
+scaleFactor = 0.3
 
 onecharwidth = 10
 onecharheight = 18
@@ -18,7 +19,7 @@ def getchar(inputInt):
 
 text_file = open("output.txt", "w")
 
-im = Image.open("img.jpg")
+im = Image.open("1.jpg")
 
 fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
